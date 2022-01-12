@@ -1,0 +1,13 @@
+# igone .DS_Store
+.DS_Store
+
+# igone .vscode
+.vscode
+
+# igone object files
+src/*.o
+src/**/*.o
+*.o
+
+# ignore lib/static
+lib/static/
