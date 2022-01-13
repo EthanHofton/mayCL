@@ -6,5 +6,7 @@
 #include "context.hpp"
 #include "device.hpp"
 #include "support.hpp"
+#include "kernel.hpp"
+#include "program.hpp"
 
 #endif

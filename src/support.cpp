@@ -54,7 +54,7 @@ namespace mayCL
     std::string getKernelSource(std::string filepath)
     {
         std::ifstream source;
-        source.open("kernals/" + filepath, std::ios::in);
+        source.open("kernels/" + filepath, std::ios::in);
 
         assert(source.is_open());
 

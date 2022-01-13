@@ -3,6 +3,9 @@
 
 #include "program.hpp"
 #include "buffer.hpp"
+#include "commandQueue.hpp"
+
+#include <glm/glm.hpp>
 
 namespace mayCL
 {
@@ -15,7 +18,7 @@ namespace mayCL
 
         void setArg(unsigned int t_argIndex, Buffer &t_argVal);
 
-        void enqueue();
+        void enqueue(CommandQueue &t_queue, unsigned int t_workDim, glm::vec3 t_globalDim, glm::vec3 t_localDim);
 
         inline cl_kernel& getKernel() { return m_kernel; }
 
@@ -23,9 +26,6 @@ namespace mayCL
 
         cl_kernel m_kernel;
         Program *m_program;
-
-        unsigned int m_workDimentions;
-
     };
 }
 
