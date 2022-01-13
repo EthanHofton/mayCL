@@ -10,7 +10,7 @@ namespace mayCL
     {
     public:
 
-        Buffer(Context t_context, cl_mem_flags t_memMode, unsigned int t_dataSize);
+        Buffer(Context &t_context, cl_mem_flags t_memMode, unsigned int t_dataSize);
         ~Buffer();
 
         void bufferWrite(CommandQueue t_queue, void *t_writeData);
@@ -20,13 +20,16 @@ namespace mayCL
         inline T* getBufferDataAs() { return (T*)m_dataBuffer; }
         inline void* getBufferData() { return m_dataBuffer; }
 
+        inline unsigned int getDataSize() { return m_dataSize; }
+        inline cl_mem& getBuffer() { return m_buffer; }
+
     private:
 
         cl_mem m_buffer;
         void *m_dataBuffer;
         unsigned int m_dataSize;
         cl_mem_flags m_memMode;
-        Context m_context;
+        Context *m_context;
     };
 }
 

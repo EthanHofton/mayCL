@@ -2,13 +2,14 @@
 
 namespace mayCL
 {
-    Buffer::Buffer(Context t_context, cl_mem_flags t_memMode, unsigned int t_dataSize) : m_context(t_context)
+    Buffer::Buffer(Context &t_context, cl_mem_flags t_memMode, unsigned int t_dataSize)
     {
+        m_context = &t_context;
         m_memMode = t_memMode;
         m_dataSize = t_dataSize;
         m_dataBuffer = (void *)(new char[m_dataSize]);
 
-        m_buffer = clCreateBuffer(m_context.getContext(), m_memMode, m_dataSize, NULL, NULL);
+        m_buffer = clCreateBuffer(m_context->getContext(), m_memMode, m_dataSize, NULL, NULL);
     }
 
     Buffer::~Buffer() {}

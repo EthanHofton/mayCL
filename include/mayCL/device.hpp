@@ -10,10 +10,9 @@ namespace mayCL
     public:
 
         Device(cl_device_id t_id);
-        Device();
-        ~Device();
+        ~Device() = default;
 
-        inline cl_device_id getDeviceId() { return m_deviceId; }
+        inline cl_device_id& getDeviceId() { return m_deviceId; }
 
     private:
 
