@@ -2,6 +2,7 @@
 #define buffer_hpp
 
 #include "context.hpp"
+#include "commandQueue.hpp"
 
 namespace mayCL
 {
@@ -9,23 +10,23 @@ namespace mayCL
     {
     public:
 
-        Buffer(cl_context t_context, cl_mem_flags t_memMode, void *t_data, unsigned int t_dataSize);
+        Buffer(Context t_context, cl_mem_flags t_memMode, unsigned int t_dataSize);
         ~Buffer();
 
-        void bufferWrite();
-        void bufferRead();
+        void bufferWrite(CommandQueue t_queue, void *t_writeData);
+        void bufferRead(CommandQueue t_queue);
 
         template<typename T>
-        inline T* getBufferDataAs() { return (T*)m_data; }
-        inline void* getBufferData() { return m_data; }
+        inline T* getBufferDataAs() { return (T*)m_dataBuffer; }
+        inline void* getBufferData() { return m_dataBuffer; }
 
     private:
 
         cl_mem m_buffer;
-        void *m_data;
+        void *m_dataBuffer;
         unsigned int m_dataSize;
         cl_mem_flags m_memMode;
-        cl_context m_context;
+        Context m_context;
     };
 }
 

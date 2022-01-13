@@ -1,7 +1,7 @@
 #ifndef device_hpp
 #define device_hpp
 
-#include <OpenCL/opencl.h>
+#include "support.hpp"
 
 namespace mayCL
 {
@@ -9,10 +9,15 @@ namespace mayCL
     {
     public:
 
+        Device(cl_device_id t_id);
         Device();
         ~Device();
 
-        
+        inline cl_device_id getDeviceId() { return m_deviceId; }
+
+    private:
+
+        cl_device_id m_deviceId;
     };
 }
 

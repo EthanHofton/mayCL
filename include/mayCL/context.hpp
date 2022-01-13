@@ -7,8 +7,19 @@ namespace mayCL
 {
     class Context
     {
-        Context();
+    public:
 
+        Context(Device *t_devices, unsigned int t_deviceCount);
+        ~Context();
+
+        inline cl_context getContext() { return m_context; }
+
+    private:
+
+        cl_context m_context;
+        unsigned int m_deviceCount;
+        Device *m_devices;
+        cl_device_id *m_deviceIds;
     };
 }
 
