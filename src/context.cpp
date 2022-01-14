@@ -1,4 +1,5 @@
 #include <mayCL/context.hpp>
+#include <mayCL/logger.hpp>
 
 namespace mayCL
 {
@@ -14,6 +15,8 @@ namespace mayCL
         }
 
         m_context = clCreateContext(NULL, m_deviceCount, m_deviceIds, NULL, NULL, NULL);
+
+        CORE_INFO("Contexted created with id: {}", m_context);
     }
 
     Context::Context(Device &t_device)

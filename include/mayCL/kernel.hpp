@@ -13,7 +13,7 @@ namespace mayCL
     {
     public:
         
-        Kernel(Program &t_program, std::string kernelName);
+        Kernel(Program &t_program, std::string t_kernelName);
         ~Kernel() = default;
 
         void setArg(unsigned int t_argIndex, Buffer &t_argVal);

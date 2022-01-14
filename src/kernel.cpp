@@ -2,11 +2,11 @@
 
 namespace mayCL
 {
-    Kernel::Kernel(Program &t_program, std::string kernelName)
+    Kernel::Kernel(Program &t_program, std::string t_kernelName)
     {
         m_program = &t_program;
         cl_int errorCode;
-        m_kernel = clCreateKernel(m_program->getProgram(), kernelName.c_str(), &errorCode);
+        m_kernel = clCreateKernel(m_program->getProgram(), t_kernelName.c_str(), &errorCode);
 
         if (errorCode != CL_SUCCESS)
         {
