@@ -1,4 +1,5 @@
 #include <mayCL/program.hpp>
+#include <mayCL/logger.hpp>
 
 namespace mayCL
 {
@@ -15,16 +16,17 @@ namespace mayCL
 
         if (errorCode != CL_SUCCESS)
         {
-            std::cout << "program not created. Error" << std::endl; 
+            CORE_CRITICAL("Could not create program");
             assert(m_program == NULL);
         }
 
         auto programBuildStatus = clBuildProgram(m_program, 0, NULL, NULL, NULL, NULL);
         if (programBuildStatus != CL_SUCCESS)
         {
-            std::cout << "program build failed. Error" << std::endl;
+            CORE_CRITICAL("Could not build program. Error code: {}", (int)programBuildStatus);
             assert(programBuildStatus == CL_SUCCESS);
         }
 
+        CORE_INFO("Program created");
     }
 }

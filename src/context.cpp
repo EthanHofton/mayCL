@@ -16,7 +16,7 @@ namespace mayCL
 
         m_context = clCreateContext(NULL, m_deviceCount, m_deviceIds, NULL, NULL, NULL);
 
-        CORE_INFO("Contexted created with id: {}", m_context);
+        CORE_INFO("Contexted created with {} device(s)", m_deviceCount);
     }
 
     Context::Context(Device &t_device)
@@ -24,6 +24,8 @@ namespace mayCL
         m_deviceIds = nullptr;
         m_deviceCount = 1;
         m_context = clCreateContext(NULL, m_deviceCount, &t_device.getDeviceId(), NULL, NULL, NULL);
+
+        CORE_INFO("Contexted created with 1 device");
     }
 
     Context::~Context()
