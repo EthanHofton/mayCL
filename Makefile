@@ -18,6 +18,7 @@ dirs:
 	mkdir -p ./$(BIN)/static
 
 libs:
+	cp -a include/glm/glm/. include/glm/
 
 $(PROGRAM): $(OBJ)
 	ar rcs $(BIN)/static/lib$(PROGRAM).a $^
