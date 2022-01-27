@@ -21,6 +21,7 @@ Example Code:
 
 ```c++
 #include <mayCL/mayCL.hpp>
+#include <iostream>
 
 #define DATA_LENGTH 5
 #define DATA_SIZE (DATA_LENGTH*sizeof(float))
@@ -44,7 +45,7 @@ int main(int argc, char** argv)
     mayCL::Buffer mem(context, CL_MEM_READ_WRITE, DATA_SIZE);
 
     // create kernel
-    auto k = getKernelNames("main.clcpp");
+    auto k = mayCL::getKernelNames("main.clcpp");
     mayCL::Program program(context, "main.clcpp");
     mayCL::Kernel kernel(program, k[0]);
 
